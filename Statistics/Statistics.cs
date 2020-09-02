@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Statistics
 {
-    class Stats
+    public class Stats
     {
         public double average;
         public double max;
         public double min;
     }
-    class StatsComputer
+    public class StatsComputer
     {
         public Stats CalculateStatistics(List<float> numbers)
         {
