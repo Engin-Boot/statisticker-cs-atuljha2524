@@ -1,6 +1,10 @@
 using System;
 using Xunit;
 using Statistics;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Statistics.Test
 {
@@ -11,7 +15,7 @@ namespace Statistics.Test
         {
             var statsComputer = new StatsComputer();
             var computedStats = statsComputer.CalculateStatistics(
-                new List<___>{1.5, 8.9, 3.2, 4.5});
+                new List<float>{1.5, 8.9, 3.2, 4.5});
             float epsilon = 0.001F;
             Assert.True(Math.Abs(computedStats.average - 4.525) <= epsilon);
             Assert.True(Math.Abs(computedStats.max - 8.9) <= epsilon);
@@ -21,7 +25,7 @@ namespace Statistics.Test
         {
             var statsComputer = new StatsComputer();
             var computedStats = statsComputer.CalculateStatistics(
-                new List<___>{});
+                new List<float>{});
             Assert.True(double.IsNan(computedStats.average));
             Assert.True(double.IsNan(computedStats.max));
             Assert.True(double.IsNan(computedStats.min));
