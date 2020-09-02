@@ -14,7 +14,7 @@ namespace Statistics
     }
     public class StatsComputer
     {
-        public Stats CalculateStatistics(List<float> numbers)
+        public Stats CalculateStatistics(List<double> numbers)
         {
             Stats obj = new Stats();
             if (numbers.Count == 0) {
