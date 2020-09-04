@@ -23,6 +23,7 @@ namespace Statistics
                 obj.average = double.NaN;
                 return obj;
             }
+            List<double> validNumbers = this.GetValidList(numbers);
             obj.max = validNumbers.Max();
             obj.min = validNumbers.Min();
             obj.average = validNumbers.Average();
