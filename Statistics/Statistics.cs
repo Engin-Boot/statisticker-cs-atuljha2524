@@ -23,16 +23,20 @@ namespace Statistics
                 obj.average = double.NaN;
                 return obj;
             }
+            obj.max = validNumbers.Max();
+            obj.min = validNumbers.Min();
+            obj.average = validNumbers.Average();
+            return obj;
+        }
+        public List<double> GetValidList(List<double> numbers)
+        {
             List<double> validNumbers = new List<double>();
             for (int i = 0; i < numbers.Count; i++) {
                 if (!double.IsNaN(numbers[i])) {
                     validNumbers.Add(numbers[i]);
                 }
             }
-            obj.max = validNumbers.Max();
-            obj.min = validNumbers.Min();
-            obj.average = validNumbers.Average();
-            return obj;
+            return validNumbers;
         }
     }
 }
