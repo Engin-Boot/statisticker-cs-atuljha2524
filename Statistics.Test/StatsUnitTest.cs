@@ -21,6 +21,7 @@ namespace Statistics.Test
             Assert.True(Math.Abs(computedStats.max - 8.9) <= epsilon);
             Assert.True(Math.Abs(computedStats.min - 1.5) <= epsilon);
         }
+        [Fact]
         public void ReportsNaNForEmptyInput()
         {
             var statsComputer = new StatsComputer();
@@ -33,5 +34,15 @@ namespace Statistics.Test
             //Double.NaN (not-a-number), as described in
             //https://docs.microsoft.com/en-us/dotnet/api/system.double.nan?view=netcore-3.1
         }
+        [Fact]
+        public void WhenListContainingNaNIsGivenThenStatisticsOfLeftItemsIsCalculated() {
+            var statsComputer = new StatsComputer();
+            var computedStats = statsComputer.CalculateStatistics(
+                new List<double>{1.5, double.NaN, 3.2, 4.5});
+            float epsilon = 0.001F;
+            Assert.True(Math.Abs(computedStats.average - 3.067) <= epsilon);
+            Assert.True(Math.Abs(computedStats.max - 4.5) <= epsilon);
+            Assert.True(Math.Abs(computedStats.min - 1.5) <= epsilon);
+        } 
     }
 }
